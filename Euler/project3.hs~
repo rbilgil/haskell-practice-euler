@@ -1,0 +1,7 @@
+primes :: Int -> [Int]
+primes 0 = []
+primes 1 = [2]
+primes a = [x | x <- [1..], and (map (/=0) (map (`mod` x) (primes (a-1)))) ]
+
+main = do
+	print $ primes 3
